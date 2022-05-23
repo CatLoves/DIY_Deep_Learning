@@ -101,4 +101,22 @@ Suppose you have to deploy your deep learning models on AIot devices, only a sub
 
 # How to get started ?
     
-TODO
+## Prerequisites
+
+1. **Passion for deep learning**: The tour to build a customized and reliable deep learning package is time-consuming and challenging, we will not get success without the passion for deep learning.
+
+2. **Basic knowledge about deep learning**: You need to know the basics of deep learning, like convolution, batch normalization etc. Andrew Ng's deep learning courses are highly recommended: [here](https://github.com/ashishpatel26/Andrew-NG-Notes)
+
+
+# Development plan
+
+- [ ] 2022-5-23 to 2022-5-29: output technology roadmap,  
+- [x] 2022-5-22: initial readme.md including: Why should we DIY deep learning and Features and principles of this package
+
+
+
+# Tutorials and references
+
+1. Deep learning courses by Andrew Ng: [here](https://github.com/ashishpatel26/Andrew-NG-Notes)
+
+2. Machine learning using numpy: [here](https://github.com/ddbourgin/numpy-ml/tree/master/numpy_ml/neural_nets)
