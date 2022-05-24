@@ -3,7 +3,7 @@
 <img src="./data/Figs/logo5.jpg" alt="drawing"/>
 
 
-DIY(Do it youself) Deep Learning is a python package for our own deep learning framework using pure Numpy, with the following highlights:
+DIY(Do it youself) Deep Learning is a python package for our own deep learning framework using pure Numpy, highlights are:
 - **Education focus**: Main purpose of this package is obtaining deep understanding of modern deep learning frameworks like Tensorflow and PyTorch, so we will implement most of deep learning functions on our own, like convolution, batch normalization, dropout, etc
 - **High speed**: GPU acceleration is used to speed up our code, [GPU Python](https://developer.nvidia.com/how-to-cuda-python) and [CuPy](https://github.com/cupy/cupy) make our package comparablely fast as  PyTorch
 - **High reliability**: All important functions come with a unit test, corner cases are considered to ensure high reliability
@@ -12,6 +12,8 @@ DIY(Do it youself) Deep Learning is a python package for our own deep learning f
 - **High productivity**: Life is short, I use python! Get away from time-consuming and tedious C/C++ code for high productivity.
 - **Complete documentation**: Professional document tool [pdoc](https://pdoc.dev/docs/pdoc.html) is massively used to help users master every important function
 
+Limitations are:
+- **Non-distributed**: Until now, multi-GPU traning is not supported.
 
 
 
@@ -106,6 +108,12 @@ Suppose you have to deploy your deep learning models on AIot devices, only a sub
 1. **Passion for deep learning**: The tour to build a customized and reliable deep learning package is time-consuming and challenging, we will not get success without the passion for deep learning.
 
 2. **Basic knowledge about deep learning**: You need to know the basics of deep learning, like convolution, batch normalization etc. Andrew Ng's deep learning courses are highly recommended: [here](https://github.com/ashishpatel26/Andrew-NG-Notes)
+
+## Overview on technology roadmap
+
+Building a customized and reliable deep learning package is a huge workload, which is comprehensive, complex and challenging. Survey on technology roadmap is quite important. 
+
+
 
 
 # Development plan
