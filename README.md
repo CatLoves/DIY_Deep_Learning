@@ -29,40 +29,7 @@ There are two important reasons:
 If you merely use PyTorch/Tensorflow for deep learning, it's unlikely that you will master deep learning quite well. For reasons, let's consider two cases:
 (1) You only use PyTorch/Tensorflow API and don't like reading API's source code, in this case you may just know something about API's math or principle, but you don't know how it actually works;
 (2) You use PyTorch/Tensorflow API and often read API's source code, in this case, you will find that the source code is really hard to read and understand, because most source code is written in C/C++, for example:
-- Source code of convolution in pytorch is [here](https://github.com/pytorch/pytorch/blob/c780610f2d8358297cb4e4460692d496e124d64d/aten/src/ATen/native/Convolution.cpp#L481):
-```c
-at::Tensor _convolution(
-    const Tensor& input_r, const Tensor& weight_r, const Tensor& bias_r,
-    IntArrayRef stride_, IntArrayRef padding_, IntArrayRef dilation_,
-    bool transposed_, IntArrayRef output_padding_, int64_t groups_,
-    bool benchmark, bool deterministic, bool cudnn_enabled) {
 
-  const bool input_is_mkldnn = input_r.is_mkldnn();
-  auto input = input_r;
-  auto weight = weight_r;
-  auto bias = bias_r;
-  auto k = weight.ndimension();
-  // mkldnn conv2d weights could have been re-ordered to 5d by
-  // mkldnn_reorder_conv2d_weight
-  if (input_is_mkldnn && (k == input.ndimension() + 1)) {
-    k = input.ndimension();
-  }
-  int64_t dim = k - 2;
-
-  TORCH_CHECK(dim > 0, "weight should have at least three dimensions");
-
-  ConvParams params;
-  params.stride = expand_param_if_needed(stride_, "stride", dim);
-  params.padding = expand_param_if_needed(padding_, "padding", dim);
-  params.dilation = expand_param_if_needed(dilation_, "dilation", dim);
-  params.transposed = transposed_;
-  params.output_padding = expand_param_if_needed(output_padding_, "output_padding", dim);
-  params.groups = groups_;
-  params.benchmark = benchmark;
-  params.deterministic = deterministic;
-  params.cudnn_enabled = cudnn_enabled;
-  ...
-```
 - Source code of Batch normalization in pytorch is [here](https://github.com/pytorch/pytorch/blob/420b37f3c67950ed93cd8aa7a12e673fcfc5567b/aten/src/ATen/native/Normalization.cpp#L61-L126):
 ```c
 template<typename scalar_t>
@@ -109,11 +76,12 @@ Suppose you have to deploy your deep learning models on AIot devices, only a sub
 
 2. **Basic knowledge about deep learning**: You need to know the basics of deep learning, like convolution, batch normalization etc. Andrew Ng's deep learning courses are highly recommended: [here](https://github.com/ashishpatel26/Andrew-NG-Notes)
 
+
 ## Overview on technology roadmap
 
 Building a customized and reliable deep learning package is a huge workload, which is comprehensive, complex and challenging. Therefore, survey was performed on all popular open-source deep learning frameworks, important metrics are:
 - Focus: main focus of the framework, like speed or clean code;
-- Popularity: we use Github star number for the sake of simplicity;
+- Popularity: we use Github star number for the sake of simplicity, on 2022-5-25;
 - Backprop: how the backpropagation of networks was implemented
 
 |    Framework    | Focus | Popularity | Backprop
@@ -126,11 +94,23 @@ Building a customized and reliable deep learning package is a huge workload, whi
 | [Chainer(not maintained)](https://github.com/chainer/chainer)       | Flexibility | 5.7 K | [Python and C++](https://github.com/chainer/chainer/blob/f53e57434089fa6f8dfe93a1306ba394cbabf8ad/chainer/_backprop.py)
 | [Trax](https://github.com/google/trax)       | Clear code and speed |  5.7 K | [Jax](https://github.com/google/jax)  
 | [ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch) | Pure Numpy, education focus | 21.1 K | [Pure numpy](https://github.com/eriklindernoren/ML-From-Scratch/blob/a2806c6732eee8d27762edd6d864e0c179d8e9e8/mlfromscratch/deep_learning/layers.py#L29)  
+| [NumpyDL](https://github.com/chaoming0625/NumpyDL) | Pure Numpy, education focus | 203 | [Pure numpy](https://github.com/chaoming0625/NumpyDL/blob/master/npdl/layers/convolution.py#L88)
+| [deepnet](https://github.com/parasdahal/deepnet) | Pure Numpy, education focus | 308 | [Pure numpy](https://github.com/parasdahal/deepnet/blob/master/deepnet/layers.py#L41)
+| [MyDeepLearning](https://github.com/nick6918/MyDeepLearning) | Pure Numpy, education focus | 291 | [Pure numpy](https://github.com/nick6918/MyDeepLearning/blob/master/lib/layers/layers.py#L347)
+| [xshinnosuke](https://github.com/E1eveNn/xshinnosuke) | Pure Numpy, Dynamic Graph, GPU usage | 266 | [Pure numpy](https://github.com/E1eveNn/xshinnosuke/blob/master/xs/core/autograd.py)
 
+Based on the survey above, we plan to develop our package based on five packages:
+- [ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch)
+- [NumpyDL](https://github.com/chaoming0625/NumpyDL)
+- [deepnet](https://github.com/parasdahal/deepnet)
+- [MyDeepLearning](https://github.com/nick6918/MyDeepLearning)
+- [xshinnosuke](https://github.com/E1eveNn/xshinnosuke) 
+
+Detailed technology roadmap is [here]
 
 # Development plan
 
-- [ ] 2022-5-23 to 2022-5-29: output technology roadmap,  
+- [ ] 2022-5-23 to 2022-5-25: output technology roadmap,  
 - [x] 2022-5-22: initial readme.md including: Why should we DIY deep learning and Features and principles of this package
 
 
