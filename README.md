@@ -106,11 +106,11 @@ Based on the survey above, we plan to develop our package based on five packages
 - [MyDeepLearning](https://github.com/nick6918/MyDeepLearning)
 - [xshinnosuke](https://github.com/E1eveNn/xshinnosuke) 
 
-Detailed technology roadmap is [here]
+Detailed technology roadmap is [here](https://github.com/CatLoves/DIY_Deep_Learning/blob/main/doc/this_project/roadmap.md)
 
 # Development plan
 
-- [ ] 2022-5-23 to 2022-5-25: output technology roadmap,  
+- [x] 2022-5-23 to 2022-5-25: conduct a survey on existing open-source deep learning frameworks 
 - [x] 2022-5-22: initial readme.md including: Why should we DIY deep learning and Features and principles of this package
 
 
