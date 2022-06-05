@@ -14,8 +14,15 @@ DIY(Do it youself) Deep Learning is a python package for our own deep learning f
 
 Limitations are:
 - **Non-distributed**: Until now, multi-GPU traning is not supported.
-
-
+  
+Table of contents:
+- [DIY_Deep_Learning](#diy_deep_learning)
+- [Why should we DIY deep learning ?](#why-should-we-diy-deep-learning-)
+- [How to get started ?](#how-to-get-started-)
+  - [Prerequisites](#prerequisites)
+  - [Overview on technology roadmap](#overview-on-technology-roadmap)
+- [Development plan](#development-plan)
+- [Tutorials and references](#tutorials-and-references)
 
 # Why should we DIY deep learning ?
 
@@ -98,6 +105,7 @@ Building a customized and reliable deep learning package is a huge workload, whi
 | [deepnet](https://github.com/parasdahal/deepnet) | Pure Numpy, education focus | 308 | [Pure numpy](https://github.com/parasdahal/deepnet/blob/master/deepnet/layers.py#L41)
 | [MyDeepLearning](https://github.com/nick6918/MyDeepLearning) | Pure Numpy, education focus | 291 | [Pure numpy](https://github.com/nick6918/MyDeepLearning/blob/master/lib/layers/layers.py#L347)
 | [xshinnosuke](https://github.com/E1eveNn/xshinnosuke) | Pure Numpy, Dynamic Graph, GPU usage | 266 | [Pure numpy](https://github.com/E1eveNn/xshinnosuke/blob/master/xs/core/autograd.py)
+| [TensorLayer](https://github.com/tensorlayer/TensorLayer) | Pure Python | 7K | backends like Tensorflow
 
 Based on the survey above, we plan to develop our package based on five packages:
 - [ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch)
@@ -110,6 +118,8 @@ Detailed technology roadmap is [here](https://github.com/CatLoves/DIY_Deep_Learn
 
 # Development plan
 
+- [ ] 2022-6-2 to 2022-6-8: output the fisrt version V0.0.1 which support network of liner layers, cupy acceleration,  pdoc documentation 
+- [x] 2022-5-26 to 2022-6-1: get familar with existing reference frameworks 
 - [x] 2022-5-23 to 2022-5-25: conduct a survey on existing open-source deep learning frameworks 
 - [x] 2022-5-22: initial readme.md including: Why should we DIY deep learning and Features and principles of this package
 
